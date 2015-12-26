@@ -1,0 +1,23 @@
+{
+  "name": "timer-element",
+  "description": "timer element with start/stop functionality",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "polymer",
+    "timer"
+  ],
+  "license": "MIT",
+  "main": "timer-element.html",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~1.2.3"
+  }
+}
