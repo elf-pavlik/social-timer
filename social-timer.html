@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../../bower_components/paper-elements/paper-dialog.html">
 <link rel="import" href="../../bower_components/paper-elements/paper-button.html">
 
-<dom-module id="timer-dialog">
+<dom-module id="social-timer">
   <template>
     <style>
       :host {
@@ -40,6 +40,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <span>{{timeElapsed}}</span>
         </div>
     </paper-dialog>
+    <paper-button id="start-button" toggles raised noink on-click="handleStartButtonClick" autofocus style="margin: 0 auto;">
+              START
+    </paper-button>
   </template>
   <script>
   (function() {
@@ -48,7 +51,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /* global moment */
 
     Polymer({
-      is: 'timer-dialog',
+      is: 'social-timer',
       properties: {
 
         opened: {
@@ -76,10 +79,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           type: String,
           computed: 'getTimeElapsed(seconds)'
         },
-        timer: {
-          type: Object,
-          notify: true
-        }
       },
 
       handleDialogOpen: function() {
@@ -95,10 +94,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       startTimer: function () {
         this.isRunning = true;
         this.createTimer();
+        this.fire('start');
       },
       stopTimer: function() {
         this.isRunning = false;
         this.isFinished = true;
+        this.fire('stop');
       },
       createTimer: function() {
         if(this.isRunning) {
@@ -106,10 +107,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this.async(this.createTimer, 1000);
         }
       },
-
+      handleStartButtonClick: function() {
+        this.startDate = new Date();
+        this.opened = true;
+      },
       handleStopButtonClick: function() {
         if (this.isRunning) {
-           this.set('timer.stop', new Date());
            this.stopTimer();
            this.async(function() {
               this.opened = false;

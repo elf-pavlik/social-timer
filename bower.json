@@ -1,6 +1,6 @@
 {
-  "name": "timer-dialog",
-  "description": "timer dialog element with start/stop functionality",
+  "name": "social-timer",
+  "description": "timer element with start/stop functionality",
   "main": "",
   "moduleType": [],
   "keywords": [
@@ -8,7 +8,7 @@
     "timer"
   ],
   "license": "MIT",
-  "main": "timer-dialog.html",
+  "main": "social-timer.html",
   "homepage": "",
   "ignore": [
     "**/.*",

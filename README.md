@@ -1,1 +1,1 @@
-# timer-dialog
+# social-timer
