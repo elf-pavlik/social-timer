@@ -1,1 +1,1 @@
-# timer-element
+# timer-dialog
